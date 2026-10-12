@@ -9,26 +9,40 @@
   #texto { 
   position: absolute; 
   top: 40%; 
-  left: 49%;
+  left: 50%;
   transform: translateX(-50%);
-  font-size: 30px; 
+  font-size: 40px; 
   color: white; 
   text-align: center;
   font-weight: bold;
 
   text-shadow: 2px 2px 5px black;
 }
+   #texto2 { 
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 50px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+     
+    text-shadow: 2px 2px 5px black;
+   }
 </style>
 </head>
 <body>
   <img id="imagen" src="imagen.png" alt="Overlay" width="400">
   <div id="texto">Tu texto aquí</div>
+  <div id="texto2">Tu segundo aquí</div>
 <script>
 async function actualizar() {
   const res = await fetch("data.json?v=" + Date.now());
   const data = await res.json();
 
   document.getElementById("texto").innerText = data.texto;
+  document.getElementById("texto2").innerText = data.texto2;
 
   const img = document.getElementById("imagen");
   img.src = data.imagen + "?v=" + Date.now();
